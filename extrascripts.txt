@@ -1,0 +1,22 @@
+<script>
+$(function() {
+    $('#createrestaurant').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+        var data = $(this).serializeArray();
+        console.log(data);
+        <!--           window.location.href = '/restaurantfindall?findall='+data;-->
+        $.post( "restaurantcreate",{findall :data[0]["value"]});
+    });
+});
+</script>
+<script>
+$(function() {
+    $('#deleterestaurant').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+        var data = $(this).serializeArray();
+        console.log(data);
+        <!--           window.location.href = '/restaurantfindall?findall='+data;-->
+        $.post( "restaurantdelete",{delete :data[0]["value"]});
+    });
+});
+</script>
